@@ -1,0 +1,78 @@
+{
+  "name": "TPAccount",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "balance",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "accountType",
+      "fieldType": "TPAccountType",
+      "fieldValues": "CHECKING,SAVING,CREDIT_CARD,INVESTING",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "accountStatusType",
+      "fieldType": "TPAccountStatusType",
+      "fieldValues": "ACTIVE,SUESPENDED,CLOSED",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "createDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "closedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tPEmployee",
+      "otherEntityRelationshipName": "tPAccount",
+      "relationshipName": "employee",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tPTransactionLog",
+      "otherEntityRelationshipName": "tPAccount",
+      "relationshipName": "accountlog"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "tPCustomer",
+      "otherEntityRelationshipName": "account",
+      "relationshipName": "tpcustomer",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200905164714",
+  "entityTableName": "tp_account",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

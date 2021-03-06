@@ -1,0 +1,157 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4534">
+		<dropUniqueConstraint columnNames="country_id"
+			constraintName="ux_tp_customer_country_id" tableName="tp_customer" />
+	</changeSet>
+
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4535">
+		<dropUniqueConstraint columnNames="state_id"
+			constraintName="ux_tp_customer_state_id" tableName="tp_customer" />
+	</changeSet>
+
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4536">
+		<addUniqueConstraint columnNames="ssn"
+			constraintName="UC_TP_CUSTOMERSSN_COL" tableName="tp_customer" />
+	</changeSet>
+
+
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4537">
+		<createTable tableName="tpaccount_registration">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="tpaccount_registrationPK" />
+			</column>
+			<column name="address" type="VARCHAR(255)" />
+			<column name="first_name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="last_name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile_phone_number" type="VARCHAR(255)" />
+			<column name="ssn" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4538">
+		<addColumn tableName="tpaccount_registration">
+			<column name="userName" type="VARCHAR(255)">
+				<constraints nullable="true" />
+			</column>
+			<column name="userId" type="BIGINT">
+				<constraints nullable="true" />
+			</column>
+		</addColumn>
+	</changeSet>
+
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4539">
+		<renameColumn newColumnName="user_id"
+			oldColumnName="userId" tableName="tpaccount_registration" />
+
+		<renameColumn newColumnName="user_name"
+			oldColumnName="userName" tableName="tpaccount_registration" />
+	</changeSet>
+	
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4540">
+		<addColumn tableName="tpaccount_registration">
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="true" />
+			</column>
+		</addColumn>	
+	</changeSet>
+	
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4541">
+		<addColumn tableName="tpaccount_registration">
+			<column name="create_date" type="datetime" valueDate="${now}">
+				<constraints nullable="true" />
+			</column>
+		</addColumn>	
+	</changeSet>
+	
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4542">
+    <dropForeignKeyConstraint 
+            baseTableName="tp_customer"  
+            constraintName="fk_tp_customer_state_id"/> 
+         
+    <renameColumn  
+            columnDataType="VARCHAR(255)"  
+            newColumnName="state"  
+            oldColumnName="state_id"  
+            tableName="tp_customer"/>   
+	</changeSet>
+	
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4543">  
+    <modifyDataType   
+            columnName="state"  
+            newDataType="VARCHAR(255)"  
+            tableName="tp_customer"/>  
+</changeSet>
+
+	<changeSet author="ebubekir (generated)"
+		id="1599751953468-4544">
+		
+	<dropUniqueConstraint columnNames="country_id"
+			constraintName="ux_tp_employee_country_id" tableName="tp_employee" />
+			
+	<dropUniqueConstraint columnNames="state_id"
+			constraintName="ux_tp_employee_state_id" tableName="tp_employee" />	 
+						  
+   <dropForeignKeyConstraint 
+            baseTableName="tp_employee"  
+            constraintName="fk_tp_employee_state_id"/> 
+         
+    <renameColumn  
+            columnDataType="VARCHAR(255)"  
+            newColumnName="state"  
+            oldColumnName="state_id"  
+            tableName="tp_employee"/>
+            
+      <modifyDataType   
+            columnName="state"  
+            newDataType="VARCHAR(255)"  
+            tableName="tp_employee"/> 
+            
+            
+      <dropNotNullConstraint  
+            columnDataType="VARCHAR(255)"  
+            columnName="city"  
+            tableName="tp_customer"/>
+            
+          <dropNotNullConstraint  
+            columnDataType="VARCHAR(255)"  
+            columnName="zip_code"  
+            tableName="tp_customer"/>  
+            
+              <dropNotNullConstraint  
+            columnDataType="VARCHAR(255)"  
+            columnName="city"  
+            tableName="tp_employee"/>
+            
+          <dropNotNullConstraint  
+            columnDataType="VARCHAR(255)"  
+            columnName="zip_code"  
+            tableName="tp_employee"/>     
+                                    
+</changeSet>
+
+
+
+</databaseChangeLog>

@@ -1,0 +1,28 @@
+{
+  "name": "TPCountry",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tPState",
+      "otherEntityRelationshipName": "tPCountry",
+      "relationshipName": "state"
+    }
+  ],
+  "changelogDate": "20200905164314",
+  "entityTableName": "tp_country",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

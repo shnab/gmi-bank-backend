@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.gmibank.app",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "monolith",
+    "baseName": "GmiBankBackend",
+    "packageName": "com.gmibank.app",
+    "packageFolder": "com/gmibank/app",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZmI4ODJkM2ZiNzJiYmZmODljMmMxNDBmYWU4YzE3ZDhmNGU3OGY2NTJlNjc3MjlmYjRjMjM1Mjk2MTdhYTEyNmQ5YTEzMDg3Mjc2M2VmNDY0NGRlMGFmMGZhYzkwMTAyNTk5Y2E2NjgxMDVmOTg4MzFhZTE1MDFjNzUyZTQwMGI=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1599319489729,
+    "testFrameworks": ["cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": ["en", "tr"],
+    "blueprints": [],
+    "skipClient": true
+  }
+}
